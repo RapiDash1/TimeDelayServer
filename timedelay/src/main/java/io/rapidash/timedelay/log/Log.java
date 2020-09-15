@@ -7,7 +7,6 @@ import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -71,7 +70,7 @@ public class Log {
                 long delay = CalculateTimeDelay();
                 delayLogger.info(Long.toString(delay)+"ms");
                 // Sleep for 5 mins
-                Thread.sleep(30000);
+                Thread.sleep(100000);
             } catch (Exception e) {
                 delayLogger.warning(e.toString());
                 e.printStackTrace();
