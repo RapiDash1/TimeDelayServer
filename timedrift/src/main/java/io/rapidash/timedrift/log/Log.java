@@ -1,4 +1,4 @@
-package io.rapidash.timedelay.log;
+package io.rapidash.timedrift.log;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -46,13 +46,13 @@ public class Log {
     
 
     /**
-     * Calculate Time Delay
+     * Calculate Time drift
      * @throws SocketException
      * @throws UnknownHostException
      * @throws IOException
      * @throws InterruptedException
      */
-    public long CalculateTimeDelay() throws SocketException, UnknownHostException, IOException, InterruptedException {
+    public long CalculateTimedrift() throws SocketException, UnknownHostException, IOException, InterruptedException {
         long start = System.currentTimeMillis();
         long ntpTime = getWebTime("time-a.nist.gov");
         long stop = System.currentTimeMillis();
@@ -61,18 +61,18 @@ public class Log {
 
 
     public void writeLog() {
-        Logger delayLogger = this.logger();
+        Logger driftLogger = this.logger();
         while (true) {
             try {
-                if (!delayLogger.getName().equals(dateInStringFormat())) {
-                    delayLogger = this.logger();
+                if (!driftLogger.getName().equals(dateInStringFormat())) {
+                    driftLogger = this.logger();
                 }
-                long delay = CalculateTimeDelay();
-                delayLogger.info(Long.toString(delay)+"ms");
+                long drift = CalculateTimedrift();
+                driftLogger.info(Long.toString(drift)+"ms");
                 // Sleep for 5 mins
                 Thread.sleep(100000);
             } catch (Exception e) {
-                delayLogger.warning(e.toString());
+                driftLogger.warning(e.toString());
                 e.printStackTrace();
             }
         }

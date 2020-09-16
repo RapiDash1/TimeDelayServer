@@ -1,4 +1,4 @@
-package io.rapidash.timedelay.log;
+package io.rapidash.timedrift.log;
 
 import java.io.IOException;
 import java.net.SocketException;
@@ -14,9 +14,9 @@ public class LogController {
     @Autowired
     private Log log;
 
-    @GetMapping("/delay")
-    public String timeDelay() throws SocketException, UnknownHostException, IOException, InterruptedException {
-        return Long.toString(log.CalculateTimeDelay());
+    @GetMapping("/drift")
+    public String timedrift() throws SocketException, UnknownHostException, IOException, InterruptedException {
+        return Long.toString(log.CalculateTimedrift());
     }
     
 }

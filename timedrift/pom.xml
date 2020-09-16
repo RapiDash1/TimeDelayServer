@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.rapidash</groupId>
-	<artifactId>timedelay</artifactId>
+	<artifactId>timedrift</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>timedelay</name>
+	<name>timedrift</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
